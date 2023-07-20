@@ -16,7 +16,7 @@ const Contact = ({ }) => {
     }
 
     return (
-        <div className='inline-block m-0 list-none w-[21.8421%]'>
+        <div className='block m-0 list-none w-[20%]'>
             <h6 className='mb-12 text-lg text-light uppercase'>Contact data</h6>
             <ul className='p-0 m-0 list-none mb-7'>
                 <li className='block mb-4 p-0 pb-4 border-b-2 border-solid before:table before:content-[""] after:table after:content-[""] after:clear-both clear-both
@@ -51,7 +51,7 @@ const Contact = ({ }) => {
 
 const Articles = ({ }) => {
     return (
-        <div className='inline-block m-0 ml-[4.21052%] list-none w-[21.8421%]'>
+        <div className='block m-0 list-none w-[20%]'>
             <h6 className='mb-12 text-lg text-light uppercase'>Posted Articles</h6>
             <ul>
                 <li className='block mb-4 p-0 pb-4 border-b-2 border-solid before:table before:content-[""] after:table after:content-[""] after:clear-both clear-both border-mid_dark'>
@@ -86,7 +86,7 @@ const Projects = ({ }) => {
         )
     }
     return (
-        <div className='inline-block m-0 ml-[4.21052%] list-none w-[21.8421%]'>
+        <div className='block m-0 list-none w-[20%]'>
             <h6 className='mb-12 text-lg text-light uppercase'>Posted Projects</h6>
             <ul>
                 <LiItem text='Morbi tristique senectus' />
@@ -112,7 +112,7 @@ const Images = ({ }) => {
     }
 
     return (
-        <div className='inline-block m-0 ml-[4.21052%] list-none w-[21.8421%]'>
+        <div className='block m-0 list-none w-[20%] md:hidden'>
             <h6 className='mb-12 text-lg text-light uppercase'>IMG-HOVER</h6>
             <ul>
                 <LiImage image={testImage} first={true} />
@@ -138,7 +138,7 @@ const Footer = () => {
             text-alt_light bg-alt_dark '>
                 <footer className='py-20
                 my-0 mx-auto px-[20%] lg:px-[15%] md:px-[10%]
-                flex'> {/*This component should have the clear class */}
+                flex flex-wrap justify-between'> {/*This component should have the clear class */}
                     <Contact />
                     <Articles />
                     <Projects />
@@ -152,7 +152,7 @@ const Footer = () => {
                         Copyright &copy; 2023 - All Rights Reserved - <a href=''>@Devi7uke</a>
                     </p>
                     <p className='m-0 p-0'>
-                        Portfolio by <a target="_blank" href="https://www.github.com/Devi7uke" title="Projects">Devi7uke</a>
+                        Portfolio by <a target="_blank" href="https://www.github.com/Devi7uke" title="Projects" className='hover:text-primary duration-500'>Devi7uke</a>
                     </p>
                 </div>
             </div>

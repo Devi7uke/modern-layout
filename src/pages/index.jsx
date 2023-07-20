@@ -1,4 +1,4 @@
-import Hints from '@/components/Hints'
+import Hints from '@/components/Skills'
 import IntroSection from '@/components/IntroSection'
 import Posts from '@/components/Posts'
 import Testimonials from '@/components/Testimonials'

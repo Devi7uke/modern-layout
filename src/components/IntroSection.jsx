@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { FaMoon, FaHandScissors, FaEye } from 'react-icons/fa'
 
@@ -17,17 +18,17 @@ const InLineButton = ({ text, type, link = null, last = false }) => {
   )
 }
 
-const IntroBlock = ({ title, text, icon, initial = false, active = false }) => {
+const IntroBlock = ({ title, text, icon, active = false }) => {
   return (
     <>
-      <li className={`group inline-block m-0 list-none w-[30.52631%] ${initial ? null : 'ml-[4.21052%]'}`} >
+      <li className={`group block m-0 list-none w-[30%]`} >
         <article className={`block p-7 text-center rounded-xl ${active ? 'text-light bg-dark' : 'text-dark bg-light group-hover:text-light group-hover:bg-dark duration-500'} shadow-sm shadow-black/10`} >
           <a href="#" className='after:block after:w-full after:content-none'>
-            <div className={`inline-block relative w-11 h-11 leading-10 mb-7 text-base text-center border border-solid rounded-[50%] border-black/10 ${active ? 'text-light bg-primary' : 'text-primary group-hover:text-light group-hover:bg-primary duration-500'} `}>
+            <div className={`inline-block relative w-11 h-11 leading-10 mb-7 text-base text-center border border-solid rounded-full border-black/10 ${active ? 'text-light bg-primary' : 'text-primary group-hover:text-light group-hover:bg-primary duration-500'} `}>
               {icon}
             </div>
           </a>
-          <h6 className='uppercase m-0 mb-10 relative p-0 pb-4 after:block after:absolute after:bottom-0 after:w-1/4 after:h-[5px] after:rounded-md after:content-[""] text-xl font-bold after:left-1/2 after:ml-[-12%] after:bg-primary'>
+          <h6 className='uppercase m-0 mb-10 relative p-0 pb-4 after:absolute after:bottom-0 after:w-1/4 after:h-[5px] after:rounded-md after:content-[""] text-xl font-bold after:left-1/2 after:ml-[-12%] after:bg-primary'>
             {title}
           </h6>
           <p>{text}</p>
@@ -60,11 +61,11 @@ const IntroSection = () => {
 
       <div className='block relative w-full m-0 p-0 text-left whitespace-normal break-words text-dark bg-mid_light px-[20%]'>
         <section className='relative z-10 block mx-auto py-20'>
-          <ul className='m-0 p-0 list-none block -mt-44 mx-0 text-center'>
+          <motion.ul className='flex flex-wrap justify-between m-0 p-0 list-none text-center' initial={{translateY: 0}} animate={{translateY: '-176px'}} transition={{ duration: 2, type: "spring" }}>
             <IntroBlock title='Summary' icon={<FaHandScissors className='inline-block' />} initial={true} text='Purus morbi ut risus nec orci bibendum commodo phasellus fringilla pede vitae tincidunt congue nibh lobortis.' />
             <IntroBlock title='Vision' icon={<FaEye className='inline-block' />} active={true} text='Purus morbi ut risus nec orci bibendum commodo phasellus fringilla pede vitae tincidunt congue nibh lobortis.' />
             <IntroBlock title='Objetive' icon={<FaMoon className='inline-block' />} text='Purus morbi ut risus nec orci bibendum commodo phasellus fringilla pede vitae tincidunt congue nibh lobortis.' />
-          </ul>
+          </motion.ul>
         </section>
       </div>
     </>
