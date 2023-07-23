@@ -1,14 +1,15 @@
-import { AnimatePresence } from 'framer-motion'
-import { useRouter } from 'next/router'
-
-import { Montserrat_Alternates, Lora } from 'next/font/google'
-
-import '@/styles/globals.css'
-import '@fortawesome/fontawesome-free/css/all.min.css'
-
-import Head from 'next/head'
 import Ribbon from '@/components/Ribbon'
 import Footer from '@/components/Footer'
+import '@/styles/globals.css'
+import { AnimatePresence } from 'framer-motion'
+
+import { Montserrat_Alternates, Lora } from 'next/font/google'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+
+
+import '@fortawesome/fontawesome-free/css/all.min.css'
+
 
 const montserrat = Montserrat_Alternates({
   subsets: ["latin"],
@@ -24,22 +25,15 @@ const lora = Lora({
 export default function App({ Component, pageProps }) {
     const router = useRouter()
     return (
-        <>
+        <div className={`${montserrat.variable} ${lora.variable} font-mont`}>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
             </Head>
-            <div className= {`${montserrat.variable} ${lora.variable} font-mont bg-light w-full`}>
-                <Ribbon />
-            </div>
-            <main className= {`${montserrat.variable} ${lora.variable} font-mont bg-light w-full min-h-screen`}>
-                
-                <AnimatePresence mode='wait'>
-                    <Component key={router.asPath} {...pageProps} />
-                </AnimatePresence>
+            <Ribbon />
+            <main className= {`bg-light w-full min-h-screen`}>
+                <Component key={router.asPath} {...pageProps} />
             </main>
-            <div className= {`${montserrat.variable} ${lora.variable} font-mont bg-light w-full`}>
-                <Footer />
-            </div>
-        </>
+            <Footer />
+        </div>
     )
 }

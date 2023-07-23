@@ -3,12 +3,12 @@ import React from 'react'
 import testImage from '../../public/images/100x100.png'
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebookSquare, FaGithub, FaLinkedin, FaTwitter, FaYoutube, FaLaptopHouse } from 'react-icons/fa'
 
-const Contact = ({ }) => {
+const Contact = ({ className = null }) => {
 
-    const IconBlock = ({ icon, hoverColor = null, link = null, last = false }) => {
+    const IconBlock = ({ icon, className = null, link = null, last = false }) => {
         return(
             <li className={`inline-block m-0 mt-2 ${last ? null : 'mr-1'} p-0 leading-normal`}>
-                <a href={link} className={`inline-block w-10 leading-[36px] text-2xl text-center text-inherit bg-dark hover:bg-[${hoverColor !== null ? hoverColor : '#FFFFFF'}] duration-500`}>
+                <a href={link} className={`inline-block w-10 leading-[36px] text-2xl text-center text-inherit bg-dark ${className} duration-500`}>
                     {icon}
                 </a>
             </li>
@@ -16,7 +16,7 @@ const Contact = ({ }) => {
     }
 
     return (
-        <div className='block m-0 list-none w-[20%]'>
+        <div className={`block m-0 list-none w-[20%] ${className}`}>
             <h6 className='mb-12 text-lg text-light uppercase'>Contact data</h6>
             <ul className='p-0 m-0 list-none mb-7'>
                 <li className='block mb-4 p-0 pb-4 border-b-2 border-solid before:table before:content-[""] after:table after:content-[""] after:clear-both clear-both
@@ -39,19 +39,19 @@ const Contact = ({ }) => {
                 </li>
             </ul>
             <ul className='m-0 p-0 list-none flex flex-wrap items-center justify-between'>
-                <IconBlock icon={<FaFacebookSquare className='inline-block' />} hoverColor='#3B5998' />
-                <IconBlock icon={<FaGithub className='inline-block' />} hoverColor='#5f3b98' />
-                <IconBlock icon={<FaLinkedin className='inline-block' />} hoverColor='#0E76A8' />
-                <IconBlock icon={<FaTwitter className='inline-block' />} hoverColor='#00ACEE' />
-                <IconBlock icon={<FaYoutube className='inline-block' />} hoverColor='#ca2715' last={true} />
+                <IconBlock icon={<FaFacebookSquare className='inline-block' />} className='hover:bg-[#3B5998]' />
+                <IconBlock icon={<FaGithub className='inline-block' />} className='hover:bg-[#5f3b98]' />
+                <IconBlock icon={<FaLinkedin className='inline-block' />} className='hover:bg-[#0E76A8]' />
+                <IconBlock icon={<FaTwitter className='inline-block' />} className='hover:bg-[#00ACEE]' />
+                <IconBlock icon={<FaYoutube className='inline-block' />} className='hover:bg-[#ca2715]' last={true} />
             </ul>
         </div>
     )
 }
 
-const Articles = ({ }) => {
+const Articles = ({ className = null }) => {
     return (
-        <div className='block m-0 list-none w-[20%]'>
+        <div className={`block m-0 list-none w-[20%] ${className}`}>
             <h6 className='mb-12 text-lg text-light uppercase'>Posted Articles</h6>
             <ul>
                 <li className='block mb-4 p-0 pb-4 border-b-2 border-solid before:table before:content-[""] after:table after:content-[""] after:clear-both clear-both border-mid_dark'>
@@ -77,7 +77,7 @@ const Articles = ({ }) => {
     )
 }
 
-const Projects = ({ }) => {
+const Projects = ({ className = null }) => {
     const LiItem = ({ text, link = null, last = false }) => {
         return (
             <li className={`block p-0 ${last ? 'm-0' : ' mb-4 pb-4 border-b-2 border-solid border-mid_dark'} before:table before:content-[""] after:table after:content-[""] after:clear-both clear-both`}>
@@ -86,7 +86,7 @@ const Projects = ({ }) => {
         )
     }
     return (
-        <div className='block m-0 list-none w-[20%]'>
+        <div className={`block m-0 list-none w-[20%] ${className}`}>
             <h6 className='mb-12 text-lg text-light uppercase'>Posted Projects</h6>
             <ul>
                 <LiItem text='Morbi tristique senectus' />
@@ -99,7 +99,7 @@ const Projects = ({ }) => {
     )
 }
 
-const Images = ({ }) => {
+const Images = ({ className = null }) => {
 
     const LiImage = ({ image, first = false, last = false, link = null }) => {
         return (
@@ -112,7 +112,7 @@ const Images = ({ }) => {
     }
 
     return (
-        <div className='block m-0 list-none w-[20%] md:hidden'>
+        <div className={`block m-0 list-none w-[20%] ${className}`}>
             <h6 className='mb-12 text-lg text-light uppercase'>IMG-HOVER</h6>
             <ul>
                 <LiImage image={testImage} first={true} />
@@ -139,10 +139,10 @@ const Footer = () => {
                 <footer className='py-20
                 my-0 mx-auto px-[20%] lg:px-[15%] md:px-[10%]
                 flex flex-wrap justify-between'> {/*This component should have the clear class */}
-                    <Contact />
-                    <Articles />
-                    <Projects />
-                    <Images />
+                    <Contact className='lg:w-[40%] md:w-[90%]' />
+                    <Articles className='lg:w-[40%] lg:mt-14 md:w-[90%]' />
+                    <Projects className='lg:w-[40%] lg:mt-14 md:w-[90%]' />
+                    <Images className='lg:w-[40%] lg:mt-14 md:w-[90%]' />
                 </footer>
             </div>
             <div className='block relative w-full m-0 p-0 text-left whitespace-normal break-words

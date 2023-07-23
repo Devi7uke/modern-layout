@@ -4,13 +4,13 @@ import Title from './Title'
 
 const SkillBlock = ({ title, text, icon, link = null }) => {
   return (
-    <li className={`block m-0 list-none w-[30%] mb-12`}>
+    <li className={`block m-0 list-none w-[30%] lg:w-[47%] md:w-[97%] mb-12`}>
       <article>
         <div className='m-0 p-0 block relative min-h-[36px] mb-5 pt-2 pl-14' > {/*Here should be the clear class*/}
           <a href={link} className='m-0 p-0 leading-[1] text-inherit hover:text-primary delay-300 duration-1000' >{icon}</a>
-          <h6 className='m-0 p-0 leading-[1] mb-5 text-2xl font-normal uppercase' >{title}</h6>
+          <h6 className='m-0 p-0 leading-[1] mb-5 text-2xl lg:text-lg font-normal uppercase' >{title}</h6>
         </div>
-        <p className='m-0 p-0' >{text}</p>
+        <p className='m-0 p-0 text-base sm:text-sm' >{text}</p>
       </article>
     </li>
   )
