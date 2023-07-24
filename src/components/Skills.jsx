@@ -19,7 +19,7 @@ const SkillBlock = ({ title, text, icon, link = null }) => {
 const Skills = () => {
   const iconStyle = 'block absolute top-0 left-0 text-[36px] leading-[1]'
   return (
-    <div className='block relative w-full m-0 p-0 text-left whitespace-normal break-words text-mid_dark bg-light'>
+    <div className='block relative w-full m-0 p-0 text-left whitespace-normal break-words text-mid_dark bg-mid_light'>
       <main className='block my-0 mx-auto py-20 px-0 clear-left'> {/*Here should be the clear class*/}
         <Title title='Professional Skills' />
           <ul className='flex flex-wrap justify-between m-0 p-0 px-[20%] list-none mb-20'> {/*Here should be the group class*/}

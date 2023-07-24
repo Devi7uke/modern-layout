@@ -4,6 +4,7 @@ import Posts from '@/components/Projects'
 import Testimonials from '@/components/Testimonials'
 import React from 'react'
 import Head from 'next/head'
+import Carousel from '@/components/Carousel'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <title>Devi7uke | Home </title>
       </Head>
       <IntroSection />
+      <Carousel />
       <Hints />
       <Testimonials />
       <Posts />
