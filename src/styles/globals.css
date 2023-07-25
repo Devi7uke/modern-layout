@@ -17,14 +17,26 @@ body {
     line-height: 1.6em;
 }
 
-.icons::before{
-    font-family:"Font Awesome\ 5 Free";
+.icons::before {
+    font-family: "Font Awesome\ 5 Free";
 }
 
 .icons::after {
-    font-family:"Font Awesome\ 5 Free";
+    font-family: "Font Awesome\ 5 Free";
 }
 
 .test {
     color: #3e9eb6;
+}
+
+.customSlider::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+.customSlider::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+.customSlider::-webkit-scrollbar-thumb {
+    background: #6649b8;
 }

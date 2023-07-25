@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 
 
 import '@fortawesome/fontawesome-free/css/all.min.css'
+import SideBar from '@/components/SideBar'
 
 
 const montserrat = Montserrat_Alternates({
@@ -29,6 +30,7 @@ export default function App({ Component, pageProps }) {
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
             </Head>
+            <SideBar />
             <Ribbon />
             <main className= {`bg-light w-full min-h-screen`}>
                 <Component key={router.asPath} {...pageProps} />
