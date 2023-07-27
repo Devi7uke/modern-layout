@@ -147,7 +147,7 @@ const Footer = () => {
             </div>
             <div className='block relative w-full m-0 p-0 text-left whitespace-normal break-words
             text-alt_light bg-dark'>
-                <div className='py-5 px-0 flex flex-wrap justify-between  my-0 mx-[20%]'>
+                <div className='py-5 px-0 flex flex-wrap justify-between my-0 mx-[20%]'>
                     <p className='m-0 p-0'>
                         Copyright &copy; 2023 - All Rights Reserved - <a href=''>@Devi7uke</a>
                     </p>

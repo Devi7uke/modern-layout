@@ -4,7 +4,7 @@ import { FaMoon, FaSun, FaEye } from 'react-icons/fa'
 
 const InLineButton = ({ text, type, link = null, last = false }) => {
   return (
-    <li className={`inline-block ${last ? 'mr-0' : 'mr-5'}`}>
+    <li className={`flex mt-4 ${last ? 'mr-0' : 'mr-5'}`}>
       <a
         href={link}
         className={`border rounded-xl ${type === 'inverse'
@@ -42,7 +42,7 @@ const IntroBlock = ({ title, text, icon, active = false }) => {
 const IntroSection = () => {
   return (
     <>
-      <div className="block relative w-full m-0 p-0 text-left whitespace-normal break-words bg-center bg-no-repeat bg-cover bg-[url('../../public/images/paisaje.png')] z-10 after:block after:absolute after:top-0 after:left-0 after:w-full after:h-full content-[''] after:-z-10 after:bg-black/50" priority sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw'>
+      <div className="block relative w-full m-0 p-0 text-left whitespace-normal break-words bg-center bg-no-repeat bg-cover bg-[url('../../public/images/paisaje.png')] z-10 after:block after:absolute after:top-0 after:left-0 after:w-full after:h-full content-[''] after:-z-10 after:bg-black/50" sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw'>
         <div
           className='pt-[200px] px-0 pb-[300px] mx-auto flex items-center justify-center text-light text-center'>
           <article className='block max-w-[75%] text-center'>

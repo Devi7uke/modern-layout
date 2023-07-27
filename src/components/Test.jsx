@@ -145,3 +145,73 @@ const IntroSection = () => {
 export default IntroSection
 
 */
+/*
+
+/*
+<Banner title='Home' link='/' icon={FaHome} state={isOpen} />
+<h1 className='block text-left w-full pl-7 mt-14 mb-4 text-primary'>Navigation</h1>
+<Banner title='Profile' link='/about' icon={FaUser} state={isOpen} />
+<Banner title='Wallet' icon={FaWallet} state={isOpen} />
+<Banner title='Analytics' icon={FaChartBar} state={isOpen} />
+<h1 className='block text-left w-full pl-7 mt-14 mb-4 text-primary'>User Configuration</h1>
+<Banner title='Tasks' icon={FaTasks} state={isOpen} />
+<Banner title='Settings' icon={FaCog} state={isOpen} />
+<Banner title='Help' icon={FaQuestion} state={isOpen} />
+<Banner title='Log Out' icon={FaSignOutAlt} last={true} state={isOpen} />
+*/
+
+
+/*
+<button className='flex-col justify-center items-center p-6' onClick={handleClick}>
+                <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm -translate-y-0.5 ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
+                <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+            </button>
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useState } from 'react'
+import { FaWallet, FaHome, FaUser, FaChartBar, FaTasks, FaCog, FaQuestion, FaSignOutAlt } from 'react-icons/fa'
+
+const Banner = ({ title, link = '', icon: Icon, state, last = false }) => {
+    const router = useRouter()
+    return (
+        <li style={{marginTop: `${last ? 'auto' : '8px'}`}} className={`w-full group pl-3 mb-8 hover:bg-primaryDark hover:text-light duration-300 ${router.asPath === link ? 'bg-primaryDark text-light' : ''}`}>
+            <Link href={link} className='relative text-base table w-fit p-3'>
+                <Icon className='relaive inline-block mr-3 text-xl text-center top-3' />
+                <span className={`${!state ? 'opacity-0' : 'opacity-100'}`}>{title}</span>
+            </Link>
+        </li>
+    )
+}
+
+const SideBar = () => {
+
+    const [isOpen, setIsOpen] = useState(false)
+
+    const handleClick = () => {
+        setIsOpen(!isOpen)
+    }
+
+    return (
+        <nav className={`fixed transition-all ease-in duration-300 bg-light  ${!isOpen ? 'w-[5rem]' : 'w-[10rem]'} overflow-x-hidden overflow-y-auto h-screen z-50`}>
+            <button className='flex-col justify-center items-center p-6' onClick={handleClick}>
+                <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm -translate-y-0.5 ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
+                <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+            </button>
+            <ul className='p-0 m-0 flex flex-col items-center'>
+                <Banner title='Home' link='/' icon={FaHome} state={isOpen} />
+                <Banner title='Profile' link='/about' icon={FaUser} state={isOpen} />
+                <Banner title='Wallet' icon={FaWallet} state={isOpen} />
+                <Banner title='Analytics' icon={FaChartBar} state={isOpen} />
+                <Banner title='Tasks' icon={FaTasks} state={isOpen} />
+                <Banner title='Settings' icon={FaCog} state={isOpen} />
+                <Banner title='Help' icon={FaQuestion} state={isOpen} />
+                <Banner title='Log Out' icon={FaSignOutAlt} last={true} state={isOpen} />
+            </ul>
+        </nav>
+    )
+}
+
+export default SideBar
+*/

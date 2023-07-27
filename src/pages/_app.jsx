@@ -13,9 +13,9 @@ import SideBar from '@/components/SideBar'
 
 
 const montserrat = Montserrat_Alternates({
-  subsets: ["latin"],
-  variable: "--font-mont",
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+    subsets: ["latin"],
+    variable: "--font-mont",
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 })
 
 const lora = Lora({
@@ -26,16 +26,21 @@ const lora = Lora({
 export default function App({ Component, pageProps }) {
     const router = useRouter()
     return (
-        <div className={`${montserrat.variable} ${lora.variable} font-mont`}>
-            <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            </Head>
+        <>
             <SideBar />
-            <Ribbon />
-            <main className= {`bg-light w-full min-h-screen`}>
-                <Component key={router.asPath} {...pageProps} />
-            </main>
-            <Footer />
-        </div>
+            <div className={`${montserrat.variable} ${lora.variable} font-mont ml-24 lg:ml-16 md:ml-10 max-w-fit`}>
+                <Head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                </Head>
+                <Ribbon />
+                <AnimatePresence mode='wait'>
+                    <main className={`bg-light w-full min-h-screen`}>
+                        <Component key={router.asPath} {...pageProps} />
+                    </main>
+                </AnimatePresence>
+
+                <Footer />
+            </div>
+        </>
     )
 }
