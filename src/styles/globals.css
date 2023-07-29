@@ -40,3 +40,17 @@ body {
 .customSlider::-webkit-scrollbar-thumb {
     background: #6649b8;
 }
+
+.formElement:valid ~ .textLabel {
+    top: -5px;
+}
+
+.formElement:invalid ~ .textLabel {
+    top: -5px;
+    color: orange;
+}
+
+.formElement:placeholder-shown ~ .textLabel {
+    color: aliceblue;
+    top: 50%;
+}

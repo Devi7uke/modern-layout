@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Title = ({ title }) => {
+export const Title = ({ title }) => {
     
     return (
         <div className='text-center left-1/2 mb-20'>
@@ -10,5 +10,3 @@ const Title = ({ title }) => {
         </div>
     )
 }
-
-export default Title

@@ -16,6 +16,7 @@
     "framer-motion": "^10.12.21",
     "google-fonts": "^1.0.0",
     "next": "13.4.10",
+    "pg": "^8.11.1",
     "postcss": "8.4.26",
     "react": "18.2.0",
     "react-dom": "18.2.0",

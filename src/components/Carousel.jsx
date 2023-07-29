@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from './Title'
+import { Title } from './Titles'
 import Slider from './Slider'
 import Image from 'next/image'
 import img1 from '../../public/images/slider/1.jpg'
