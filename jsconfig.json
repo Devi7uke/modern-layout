@@ -2,7 +2,7 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
-      "connection" : ["./src/utils/database"]
+      "utils/*" : ["./src/utils/*"]
     }
   }
 }

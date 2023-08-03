@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-import { FaAngleDoubleRight, FaUnlockAlt, FaHome, FaDatabase, FaUserAstronaut, FaChartBar, FaTasks, FaCog, FaQuestion, FaSignOutAlt } from 'react-icons/fa'
+import { FaAngleDoubleRight, FaUnlockAlt, FaHome, FaDatabase, FaUserAstronaut, FaChartBar, FaTasks, FaCog, FaQuestion, FaSignOutAlt, FaListOl } from 'react-icons/fa'
 
 const Hierarchy = ({ title, link = '', icon: Icon, state, last = false, children: subBanners }) => {
     const router = useRouter()
@@ -80,6 +80,7 @@ const SideBar = () => {
                 <Banner title='Permissions' link='/permissions' icon={FaUnlockAlt} state={isOpen} />
                 <Banner title='Reports' link='/reports' icon={FaChartBar} state={isOpen} />
                 <Banner title='Data' link='/data' icon={FaDatabase} state={isOpen} />
+                <Banner title='Questions' link='/adminQuestions' icon={FaListOl} state={isOpen} />
                 <Banner title='Settings' link='/settings' icon={FaCog} state={isOpen} />
                 <Banner title='Help' link='/help' icon={FaQuestion} state={isOpen} />
                 <Banner title='Log Out' icon={FaSignOutAlt} last={true} state={isOpen} />

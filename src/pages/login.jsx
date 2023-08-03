@@ -1,7 +1,26 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useCookies } from 'react-cookie'
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { FaBook, FaFacebookSquare, FaCloud, FaYoutube, FaInstagram, FaEnvelope, FaLock, FaUser } from 'react-icons/fa'
+
+const Dialogue = ({ text, className = '' }) => {
+  return (
+      <div className={`block ${className}`}>
+          <blockquote className='block relative w-full m-0 py-[5%] md:py-[10%] px-[10%] mb-7 leading-[1.4] z-10 rounded-xl text-base sm:text-sm
+          before:block before:absolute before:top-[10px] before:left-[10px] before:font-[900] before:text-3xl icons before:text-alt_light/50 before:hover:text-primaryDark/50 before:content-["\f06a"] before:-z-10
+          after:block after:absolute after:-bottom-4 after:left-7 after:w-0 after:h-0 after:content-[""] after:border-[15px] after:border-solid after:border-transparent after:border-b-0
+          text-dark bg-light 
+          hover:text-mid_light hover:bg-primary_alt duration-500
+          after:border-t-light
+          hover:after:border-t-primary_alt after:duration-500 text-center'>
+              {text}
+          </blockquote>
+      </div>
+  )
+}
 
 const SocialIcon = ({ link = '', icon: Icon }) => {
   return (
@@ -22,41 +41,37 @@ const InputBox = ({ icon: Icon, value, name = '', event, label = '', type = '' }
 }
 
 const Login = () => {
-
+  const [cookie, setCookie] = useCookies(['session_cookie'])
   const router = useRouter()
 
+  /*
   const [isLogin, setIsLogin] = useState(true)
   const handleState = () => {
     setIsLogin(!isLogin)
   }
+  */
+
+  const [loginError, setLoginError] = useState(false)
 
   const [data, setData] = useState({ user: '', password: '' })
   const handleDataChange = (name, value) => {
+    if (loginError){
+      setLoginError(false)
+    }
     setData((prevData) => ({ ...prevData, [name]: value }))
   }
-
-  const handleSubmit = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault()
     const getUser = async () => {
       try {
-        const response = await fetch('/api/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json', // Set the Content-Type to specify JSON data
-          },
-          body: JSON.stringify({
-            "user": data.user,
-            "password": data.password
-          })
-        })
-        const result = await response.json()
-        if (result.coincidences === 1) {
-          console.log("Login successful")
-          router.push('/')
-        } else {
-          console.error('Failed to login')
-        }
+        const response = await axios.post('/api/login', {data})
+        const expiration = new Date()
+        expiration.setDate(expiration.getDate() + 1)
+        setCookie('session_cookie', '', { path: '/', expires: new Date(0) })
+        setCookie('session_cookie', response.data.token, {path: '/', expires: expiration})
+        router.push('/')
       } catch (error) {
+        setLoginError(true)
         console.error('Error login:', error)
       }
     }
@@ -82,22 +97,24 @@ const Login = () => {
         </div>
 
         <div className='block w-1/2 whitespace-normal break-words lg:w-full text-light py-14 bg-transparent backdrop-blur-lg rounded-t-xl rounded-b-xl'>
-          <div className={`right-0 flex self-stretch justify-center items-center my-14 w-full ${isLogin ? 'opacity-100 delay-300' : 'absolute top-0 right-0 opacity-0 pointer-events-none'} duration-300`}>
-            <form onSubmit={handleSubmit}>
+          <div className={`right-0 flex self-stretch justify-center items-center my-14 w-full ${ /* isLogin ? 'opacity-100 delay-300' : 'absolute top-0 right-0 opacity-0 pointer-events-none' */ ''} duration-300`}>
+            <form onSubmit={handleLogin}>
+              <Dialogue text='Invalid Credentials !!!' className={`${loginError ? 'opacity-100 scale-100' : 'opacity-0 scale-0'} duration-500`} />
               <h2 className='text-3xl text-center font-bold'>Sign In</h2>
               <InputBox value={data.user} name='user' event={(name, value) => handleDataChange(name, value)} icon={FaEnvelope} label='Email' type='email' />
               <InputBox value={data.password} name='password' icon={FaLock} event={(name, value) => handleDataChange(name, value)} label='Password' type='password' />
 
               <div className='w-full text-sm font-[500] m-0 -mt-4 mb-4 flex justify-between'>
                 <label><input type="checkbox" className='accent-primary mr-1' /> Remember me</label>
-                <a href="#" className='hover:underline duration-300 ml-14 lg:ml-4'>Forgot password?</a>
+                <a href="" className='hover:underline duration-300 ml-14 lg:ml-4'>Forgot password?</a>
               </div>
               <button type="submit" className='w-full h-11 bg-light rounded-sm text-dark hover:scale-105 hover:bg-primary duration-300'>Sign In</button>
               <div className='text-sm font-[500] text-center mt-6'>
-                <p>Don&apos;t have an account? <button type="button" onClick={handleState} className='text-light font-semibold hover:underline'>Sign up</button></p>
+                <p>Don&apos;t have an account? <button type="button" /*onClick={handleState}*/ className='text-light font-semibold hover:underline'>Sign up</button></p>
               </div>
             </form>
           </div>
+          {/*
           <div className={`right-0 flex self-stretch justify-center items-center my-14 w-full ${isLogin ? 'absolute top-0 right-0 opacity-0 pointer-events-none' : 'opacity-100 delay-300'} duration-300`}>
             <form action="">
               <h2 className='text-3xl text-center font-bold'>Sign Up</h2>
@@ -115,7 +132,8 @@ const Login = () => {
               </div>
             </form>
           </div>
-
+          */
+          }
         </div>
       </div>
     </div>

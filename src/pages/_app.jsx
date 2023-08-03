@@ -26,20 +26,21 @@ const lora = Lora({
 export default function App({ Component, pageProps }) {
     const router = useRouter()
     let isLogin = router.asPath === '/login'
+    let isQuestionnaire  = router.asPath === '/questionnaire'
     return (
         <>
-            { isLogin ? null : <SideBar /> }
-            <div className={`${montserrat.variable} ${lora.variable} font-mont ${isLogin ? null : 'ml-24 lg:ml-16 md:ml-10 max-w-full'}`}>
+            { isLogin || isQuestionnaire ? null : <SideBar /> }
+            <div className={`${montserrat.variable} ${lora.variable} font-mont ${isLogin || isQuestionnaire ? null : 'ml-24 lg:ml-16 md:ml-10 max-w-full'}`}>
                 <Head>
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                 </Head>
-                <Ribbon />
+                {isQuestionnaire ? null : <Ribbon /> }
                 <AnimatePresence mode='wait'>
-                    <main className={`bg-light w-full min-h-screen`}>
+                    <main className={`bg-light w-full`}>
                         <Component key={router.asPath} {...pageProps} />
                     </main>
                 </AnimatePresence>
-                { isLogin ? null : <Footer /> }
+                { isLogin || isQuestionnaire ? null : <Footer /> }
             </div>
         </>
     )
