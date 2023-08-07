@@ -50,3 +50,34 @@ export const MainLayout = ({ className = '', children: childs }) => {
     )
 }
 
+export const BadDialogue = ({ text, className = '' }) => {
+    return (
+        <div className={`${className}`}>
+            <blockquote className='block relative w-full m-0 py-[5%] md:py-[10%] px-[10%] mb-7 leading-[1.4] z-10 rounded-xl text-base sm:text-sm
+            before:block before:absolute before:top-[10px] before:left-[10px] before:font-[900] before:text-3xl icons before:text-alt_light/50 before:hover:text-primaryDark/50 before:content-["\f06a"] before:-z-10
+            after:block after:absolute after:-bottom-4 after:left-7 after:w-0 after:h-0 after:content-[""] after:border-[15px] after:border-solid after:border-transparent after:border-b-0
+            text-dark bg-light 
+            hover:text-mid_light hover:bg-primary_alt duration-500
+            after:border-t-light
+            hover:after:border-t-primary_alt after:duration-500 text-center'>
+                {text}
+            </blockquote>
+        </div>
+    )
+}
+
+export const GoodDialogue = ({ text, className = '' }) => {
+    return (
+        <div className={`${className}`}>
+            <blockquote className='block relative w-full m-0 py-[5%] md:py-[10%] px-[10%] mb-7 leading-[1.4] z-10 rounded-xl text-base sm:text-sm
+            before:block before:absolute before:top-[10px] before:left-[10px] before:font-[900] before:text-3xl icons before:text-alt_light/50 before:hover:text-emerald-800/50 before:content-["\f058"] before:-z-10
+            after:block after:absolute after:-bottom-4 after:left-7 after:w-0 after:h-0 after:content-[""] after:border-[15px] after:border-solid after:border-transparent after:border-b-0
+            text-dark bg-light 
+            hover:text-mid_light hover:bg-emerald-500 duration-500
+            after:border-t-light
+            hover:after:border-t-emerald-500 after:duration-500 text-center'>
+                {text}
+            </blockquote>
+        </div>
+    )
+}

@@ -70,7 +70,8 @@ CREATE TABLE questions (
 CREATE TABLE sections (
 	section_id SERIAL PRIMARY KEY,
 	section_name VARCHAR(200),
-	section_description VARCHAR(1000) DEFAULT NULL
+	section_description VARCHAR(1000) DEFAULT NULL,
+    section_order INTEGER UNIQUE NOT NULL
 );
 
 INSERT INTO sections 

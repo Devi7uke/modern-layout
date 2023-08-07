@@ -23,6 +23,9 @@ module.exports = {
         primary: "#b63e96",
         primary_alt: "#a60061",
         primaryDark: "#69003d",
+        goodColor: "#c6e5b1",
+        badColor: "#ff6f6f"
+
       },
       animation: {
         'spin-slow' : 'spin 8s linear infinite'

@@ -1,26 +1,9 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useCookies } from 'react-cookie'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { FaBook, FaFacebookSquare, FaCloud, FaYoutube, FaInstagram, FaEnvelope, FaLock, FaUser } from 'react-icons/fa'
-
-const Dialogue = ({ text, className = '' }) => {
-  return (
-      <div className={`block ${className}`}>
-          <blockquote className='block relative w-full m-0 py-[5%] md:py-[10%] px-[10%] mb-7 leading-[1.4] z-10 rounded-xl text-base sm:text-sm
-          before:block before:absolute before:top-[10px] before:left-[10px] before:font-[900] before:text-3xl icons before:text-alt_light/50 before:hover:text-primaryDark/50 before:content-["\f06a"] before:-z-10
-          after:block after:absolute after:-bottom-4 after:left-7 after:w-0 after:h-0 after:content-[""] after:border-[15px] after:border-solid after:border-transparent after:border-b-0
-          text-dark bg-light 
-          hover:text-mid_light hover:bg-primary_alt duration-500
-          after:border-t-light
-          hover:after:border-t-primary_alt after:duration-500 text-center'>
-              {text}
-          </blockquote>
-      </div>
-  )
-}
 
 const SocialIcon = ({ link = '', icon: Icon }) => {
   return (
@@ -37,6 +20,22 @@ const InputBox = ({ icon: Icon, value, name = '', event, label = '', type = '' }
       <input type={type} value={value} name={name} onChange={(e) => event(e.target.name, e.target.value)} required autoComplete='no' className='group w-full h-full bg-transparent border-none outline-none formElement pr-7' placeholder='' />
       <label className='absolute top-1/2 left-0 -translate-y-1/2 duration-500 ease-out group-focus:-top-1 pointer-events-none textLabel'>{label}</label>
     </div>
+  )
+}
+
+const Dialogue = ({ text, className = '' }) => {
+  return (
+      <div className={`block ${className}`}>
+          <blockquote className='block relative w-full m-0 py-[5%] md:py-[10%] px-[10%] mb-7 leading-[1.4] z-10 rounded-xl text-base sm:text-sm
+          before:block before:absolute before:top-[10px] before:left-[10px] before:font-[900] before:text-3xl icons before:text-alt_light/50 before:hover:text-primaryDark/50 before:content-["\f06a"] before:-z-10
+          after:block after:absolute after:-bottom-4 after:left-7 after:w-0 after:h-0 after:content-[""] after:border-[15px] after:border-solid after:border-transparent after:border-b-0
+          text-dark bg-light 
+          hover:text-mid_light hover:bg-primary_alt duration-500
+          after:border-t-light
+          hover:after:border-t-primary_alt after:duration-500 text-center'>
+              {text}
+          </blockquote>
+      </div>
   )
 }
 
